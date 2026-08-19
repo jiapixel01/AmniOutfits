@@ -2,20 +2,20 @@ const fs = require('fs');
 const path = require('path');
 
 const replacements = [
-  ['x Apparels Atelier', 'Rumas World Atelier'],
-  ['x Apparels Boutique', 'Rumas World Boutique'],
-  ['x Apparels Curators', 'Rumas World Curators'],
-  ['x Apparels Intelligence', 'Rumas World Intelligence'],
-  ['x Apparels Editorial', 'Rumas World Editorial'],
-  ['x Apparels Assistant', 'Rumas World Assistant'],
-  ['x Apparels CO.', 'Rumas World CO.'],
-  ['x Apparels Team', 'Rumas World Team'],
-  ['x Apparels AI', 'Rumas World AI'],
-  ['x Apparelsr', 'Rumas World'],  // typo fix in manifest.ts
-  ['x Apparels', 'Rumas World'],
-  ['xApparels', 'RumasWorld'],
-  ['xapparels.com', 'rumasworld.com'],
-  ['xapparels', 'rumasworld'],
+  ['x Apparels Atelier', 'Amani Outfits Atelier'],
+  ['x Apparels Boutique', 'Amani Outfits Boutique'],
+  ['x Apparels Curators', 'Amani Outfits Curators'],
+  ['x Apparels Intelligence', 'Amani Outfits Intelligence'],
+  ['x Apparels Editorial', 'Amani Outfits Editorial'],
+  ['x Apparels Assistant', 'Amani Outfits Assistant'],
+  ['x Apparels CO.', 'Amani Outfits CO.'],
+  ['x Apparels Team', 'Amani Outfits Team'],
+  ['x Apparels AI', 'Amani Outfits AI'],
+  ['x Apparelsr', 'Amani Outfits'],  // typo fix in manifest.ts
+  ['x Apparels', 'Amani Outfits'],
+  ['xApparels', 'AmaniOutfits'],
+  ['xapparels.com', 'amanioutfits.com'],
+  ['xapparels', 'amanioutfits'],
 ];
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx'];

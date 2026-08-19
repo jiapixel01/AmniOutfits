@@ -7,8 +7,8 @@ import { Separator } from '@/components/ui/separator';
 import { Card, CardContent } from '@/components/ui/card';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Rumas World',
-  description: 'Get in touch with Rumas World for any inquiries, support, or feedback.',
+  title: 'Contact Us | Amani Outfits',
+  description: 'Get in touch with Amani Outfits for any inquiries, support, or feedback.',
 };
 
 async function getSettings() {
@@ -17,9 +17,9 @@ async function getSettings() {
     const settings = await GlobalSettings.findOne().lean();
     if (!settings) {
       return {
-        brandName: "Rumas World",
+        brandName: "Amani Outfits",
         contact: {
-          email: "support@RumasWorld.com",
+          email: "support@amanioutfits.com",
           phone: "+8801234567890",
           address: "Dhaka, Bangladesh"
         },
@@ -145,7 +145,7 @@ export default async function ContactPage() {
                 </p>
                 <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-md border bg-muted">
                   <iframe
-                    title="Rumas World Location"
+                    title="Amani Outfits Location"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

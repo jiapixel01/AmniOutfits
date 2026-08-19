@@ -5,8 +5,8 @@ import { Separator } from '@/components/ui/separator';
 import { ShieldCheck, Info, Share2, Lock, Eye, Bell } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Rumas World',
-  description: 'Learn how Rumas World collects, uses, and protects your personal information.',
+  title: 'Privacy Policy | Amani Outfits',
+  description: 'Learn how Amani Outfits collects, uses, and protects your personal information.',
 };
 
 async function getSettings() {
@@ -15,9 +15,9 @@ async function getSettings() {
     const settings = await GlobalSettings.findOne().lean();
     if (!settings) {
       return {
-        brandName: "Rumas World",
+        brandName: "Amani Outfits",
         contact: {
-          email: "support@RumasWorld.com"
+          email: "support@amanioutfits.com"
         }
       };
     }
@@ -25,9 +25,9 @@ async function getSettings() {
   } catch (error) {
     console.error('Error fetching settings for privacy page:', error);
     return {
-      brandName: "Rumas World",
+      brandName: "Amani Outfits",
       contact: {
-        email: "support@RumasWorld.com"
+        email: "support@amanioutfits.com"
       }
     };
   }
@@ -36,7 +36,7 @@ async function getSettings() {
 export default async function PrivacyPage() {
   const settings = await getSettings();
   const brandName = settings.brandName || "RPL Market";
-  const contactEmail = settings.contact?.email || "support@RumasWorld.com";
+  const contactEmail = settings.contact?.email || "support@amanioutfits.com";
   const lastUpdated = "April 04, 2026";
 
   return (
