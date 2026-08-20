@@ -34,32 +34,32 @@ const FAQ = mongoose.models.FAQ || mongoose.model('FAQ', FAQSchema);
 
 const faqs = [
   {
-    question: 'What type of products does Amani Outfits offer?',
-    answer: 'Amani Outfits offers premium and comfortable menswear. Our collection includes high-quality T-shirts, Polo Shirts, Casual & Formal Shirts, Hoodies, and comfortable Pants.',
+    question: 'What types of products does Amani Outfits offer?',
+    answer: 'Amani Outfits offers a premium lifestyle range including traditional sarees (Jamdani, Silk, Tangail), elegant menswear (Panjabis, Shirts, Pajamas), kids wear, handcrafted jewellery, home decor items (bedcovers, cushion covers), and unique gifts & crafts.',
     order: 1,
     isActive: true,
   },
   {
-    question: 'How is the fabric quality of your clothing?',
-    answer: 'We use premium combed cotton, high-GSM pique knit, and top-grade woven fabrics for our products. Our fabrics are pre-shrunk, meaning they will not lose their shape or fade after washing.',
+    question: 'What kind of fabrics and materials do you use?',
+    answer: 'We use high-quality, authentic handloom cotton, Rajshahi silk, Jamdani fabrics, and genuine leather for our bags and footwear. Our jewellery is crafted from premium metals, oxidized silver, and freshwater pearls.',
     order: 2,
     isActive: true,
   },
   {
-    question: 'What are the shipping charges and delivery times?',
-    answer: 'Delivery within Dhaka takes 24 to 48 hours with a shipping fee of 60 BDT. For locations outside Dhaka, shipping is 120 BDT and delivery takes 3 to 5 business days.',
+    question: 'How should I care for my silk sarees and embroidered Panjabis?',
+    answer: 'We highly recommend dry cleaning for all silk sarees (Katan, Rajshahi silk, Jamdani) and heavily embroidered or zardozi-work Panjabis to preserve the delicate fabric, color, and intricate metal work.',
     order: 3,
     isActive: true,
   },
   {
-    question: 'Can I exchange a product if the size does not fit?',
-    answer: 'Yes! We offer a hassle-free 7-day exchange policy. If you have size issues, you can exchange the item as long as it is unused, unwashed, and has its original tags attached.',
+    question: 'Do you offer customization or custom sizing for wedding attire?',
+    answer: 'Currently, our wedding collection comes in standard sizes as listed in the size chart. However, you can contact our customer care or visit our showroom for any minor adjustments or special orders.',
     order: 4,
     isActive: true,
   },
   {
-    question: 'How do I choose the correct size?',
-    answer: 'We provide a detailed Size Chart on every product page. We highly recommend measuring your chest and length before placing an order to find your perfect fit.',
+    question: 'What is your return and exchange policy?',
+    answer: 'We offer a hassle-free 7-day exchange policy. If you face any sizing or quality issues, you can exchange the item as long as it is unused, unwashed, and has all original tags and packaging intact.',
     order: 5,
     isActive: true,
   }
