@@ -113,23 +113,24 @@ export default function HeroV1({ banners, layout }: HeroSliderProps) {
         <div className="flex h-full w-full">
           {slides.map((banner, index) => {
             const isActive = index === activeIndex;
+            const targetHref = banner.primaryBtnLink || banner.link || '/shop';
 
             return (
               <div key={banner._id || index} className="relative flex-[0_0_100%] min-w-0 h-full overflow-hidden">
-                {/* Ken Burns zooming background */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <Image
-                    src={banner.image || '/placeholder-banner.jpg'}
-                    alt={banner.title || 'Hero Banner'}
-                    fill
-                    className={`object-cover object-center transition-transform duration-[8000ms] ease-linear ${isActive ? 'scale-110' : 'scale-100'}`}
-                    priority={index === 0}
-                    fetchPriority={index === 0 ? "high" : undefined}
-                    sizes="100vw"
-                  />
-                </div>
-
-                {/* Gradient Overlay removed / kept clean */}
+                <Link href={targetHref} className="block w-full h-full cursor-pointer">
+                  {/* Ken Burns zooming background */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <Image
+                      src={banner.image || '/placeholder-banner.jpg'}
+                      alt={banner.title || 'Hero Banner'}
+                      fill
+                      className={`object-cover object-center transition-transform duration-[8000ms] ease-linear ${isActive ? 'scale-110' : 'scale-100'}`}
+                      priority={index === 0}
+                      fetchPriority={index === 0 ? "high" : undefined}
+                      sizes="100vw"
+                    />
+                  </div>
+                </Link>
               </div>
             );
           })}
