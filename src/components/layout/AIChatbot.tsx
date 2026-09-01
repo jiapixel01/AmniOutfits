@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, X, Bot, User, Loader2, MessageCircleQuestion } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useSettings } from '@/components/SettingsProvider';
 
 interface Message {
   role: 'user' | 'assistant';
