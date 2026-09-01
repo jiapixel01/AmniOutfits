@@ -4,11 +4,10 @@
 import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Banner {
   _id?: string;
@@ -30,7 +29,6 @@ interface HeroSliderProps {
 const AUTOPLAY_DELAY = 5500;
 
 export default function HeroV1({ banners, layout }: HeroSliderProps) {
-  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = banners && banners.length > 0 ? banners : null;
 
@@ -136,58 +134,7 @@ export default function HeroV1({ banners, layout }: HeroSliderProps) {
                   />
                 </div>
 
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent" />
-
-                {/* Content */}
-                <div className={`absolute inset-0 flex items-end pb-10 sm:pb-20 ${layout === 'v3' ? 'lg:pb-12' : 'lg:pb-32'} z-20 px-4 sm:px-12 md:px-20 ${layout === 'v3' ? 'lg:px-16' : 'lg:px-32'}`}>
-                  <div className="w-full max-w-[95%] sm:max-w-[60%] lg:max-w-[50%] flex flex-col items-start text-left">
-                    <AnimatePresence mode="wait">
-                      {isActive && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <motion.h1
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-                            className={`text-base sm:text-4xl md:text-5xl ${layout === 'v3' ? 'lg:text-4xl' : 'lg:text-7xl'} font-black text-white leading-[1.1] tracking-tight drop-shadow-2xl ${banner.subtitle ? (layout === 'v3' ? 'mb-1 sm:mb-6 lg:mb-2' : 'mb-1 sm:mb-6') : (layout === 'v3' ? 'mb-5 sm:mb-8 lg:mb-3' : 'mb-5 sm:mb-8')}`}
-                          >
-                            {banner.title}
-                          </motion.h1>
-
-
-                          <motion.div
-                            initial={{ opacity: 0, y: 5 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-                            className="flex flex-wrap items-center gap-1.5 sm:gap-5"
-                          >
-                            <Link
-                              href={primaryHref}
-                              className={`flex items-center gap-1 px-3 py-1 sm:px-10 sm:py-4 ${layout === 'v3' ? 'lg:px-6 lg:py-2.5 lg:text-xs' : ''} bg-primary text-white font-bold rounded-full hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all text-[8px] sm:text-base shadow-2xl`}
-                            >
-                              <span>{primaryText}</span>
-                              <ArrowRight className="w-2 h-2 sm:w-4 sm:h-4" />
-                            </Link>
-
-                            {secondaryText && (
-                              <Link
-                                href={secondaryHref}
-                                className={`px-3 py-1 sm:px-10 sm:py-4 ${layout === 'v3' ? 'lg:px-6 lg:py-2.5 lg:text-xs' : ''} bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold rounded-full hover:bg-white/20 hover:border-white/40 transition-all text-[8px] sm:text-base shadow-sm`}
-                              >
-                                {secondaryText}
-                              </Link>
-                            )}
-                          </motion.div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
+                {/* Gradient Overlay removed / kept clean */}
               </div>
             );
           })}
