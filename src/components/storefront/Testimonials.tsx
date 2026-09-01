@@ -4,49 +4,49 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote, Star } from "lucide-react";
 
 import { useSettings } from "@/components/SettingsProvider";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const fallbackReviews = [
   {
     name: "Ariful Islam",
     role: "Verified Buyer",
-    content: "The quality of the products is amazing. I was skeptical about ordering online, but this shop proved me wrong. Delivery was super fast too!",
+    content: "এখান থেকে পরিবারের জন্য প্রিমিয়াম থ্রি-পিস ও ড্রেস নিয়েছিলাম। কাপড়ের কোয়ালিটি, কালার কম্বিনেশন ও সূক্ষ্ম এমব্রয়ডারি সত্যিই চমৎকার।",
     image: "https://i.pravatar.cc/80?u=1",
     rating: 5
   },
   {
     name: "Sadia Afrin",
     role: "Regular Customer",
-    content: "Excellent customer service! They helped me choose the right size for my dress. The checkout process was smooth as silk. Highly recommended.",
+    content: "দারুণ কাস্টমার সার্ভিস! সঠিক সাইজ ও ফেব্রিকের বিবরণ জানতে ইনবক্সে দারুণ সহায়তা পেয়েছি। ডেলিভারিও খুব দ্রুত হয়েছে। ওড়না ও কুর্তির ফেব্রিক অত্যন্ত আরামদায়ক।",
     image: "https://i.pravatar.cc/80?u=2",
     rating: 5
   },
   {
     name: "Tanvir Ahmed",
-    role: "Tech Enthusiast",
-    content: "Bought my new headphones from here. Genuine product with warranty. The packaging was very secure. Keep up the good work!",
+    role: "Verified Buyer",
+    content: "ওয়াইফের জন্মদিনের জন্য একটি পার্টি শাড়ি ও কুর্তি সেট অর্ডার করেছিলাম। কাপড়ের ফিনিশিং ও গর্জিয়াস লুক দেখে সবাই প্রশংসা করেছে। প্যাকেজিংও খুব চমৎকার ছিল।",
     image: "https://i.pravatar.cc/80?u=3",
     rating: 5
   },
   {
     name: "Nusrat Jahan",
     role: "Verified Buyer",
-    content: "I love the variety of products they have. It's my one-stop shop for everything I need. The prices are very competitive compared to other local shops.",
+    content: "দাম অনুযায়ী ড্রেসগুলোর কোয়ালিটি সত্যিই প্রিমিয়াম। পার্টি ওয়্যার থেকে শুরু করে রেগুলার ইউজের সেরা কালেকশন। নিশ্চিতভাবেই আবার অর্ডার করব!",
     image: "https://i.pravatar.cc/80?u=4",
     rating: 5
   }
 ];
 
 export function Testimonials() {
+  const { t } = useLanguage();
   const settings = useSettings();
-  const reviews = settings?.testimonials && settings.testimonials.length > 0 
-    ? settings.testimonials 
+  const reviews = settings?.testimonials && settings.testimonials.length > 0
+    ? settings.testimonials
     : fallbackReviews;
 
   return (
@@ -55,10 +55,10 @@ export function Testimonials() {
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-8 mb-16">
           <div className="space-y-4 text-center md:text-left max-w-xl">
             <h2 className="text-2xl md:text-4xl font-black tracking-tighter">
-              What our <span className="text-primary italic">Customers</span> say
+              {t('store.home.testimonials.title_start') || 'What our'} <span className="text-primary italic">{t('store.home.testimonials.title_highlight') || 'Customers'}</span> {t('store.home.testimonials.title_end') || 'say'}
             </h2>
             <p className="text-muted-foreground font-medium">
-              Don't just take our word for it. Join thousands of happy customers all over Bangladesh!
+              {t('store.home.testimonials.desc') || 'Don\'t just take our word for it. Join thousands of happy customers all over Bangladesh!'}
             </p>
           </div>
           <div className="flex items-center gap-2 pb-2">
@@ -101,7 +101,7 @@ export function Testimonials() {
                     ))}
                   </div>
                   <p className="text-lg leading-relaxed mb-8 flex-1 italic text-muted-foreground font-medium">
-                    "{review.content}"
+                    &quot;{review.content}&quot;
                   </p>
                   <div className="flex items-center gap-4">
                     <Avatar className="size-12 rounded-full border-2 border-primary/20 shadow-lg shadow-primary/10">

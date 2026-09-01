@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -13,6 +13,8 @@ interface Message {
 }
 
 export function AIChatbot() {
+  const { brandName } = useSettings();
+  const activeBrandName = brandName || process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
 
@@ -62,7 +64,7 @@ export function AIChatbot() {
     return parts.length > 0 ? parts : content;
   };
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Hi there! I am your Amani Outfits AI assistant. How can I help you today?' },
+    { role: 'assistant', content: `হ্যালো! আমি ${activeBrandName} এর এআই অ্যাসিস্ট্যান্ট। আজ আপনাকে কীভাবে সাহায্য করতে পারি?` },
   ]);
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -148,7 +150,7 @@ export function AIChatbot() {
                   <Bot className="size-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm">Amani Outfits AI</h3>
+                  <h3 className="font-bold text-sm">{activeBrandName} AI</h3>
                   <p className="text-[10px] text-primary-foreground/70">Always active for you</p>
                 </div>
               </div>

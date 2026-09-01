@@ -14,23 +14,24 @@ interface LogoProps {
   onClick?: () => void;
   sizes?: string;
   src?: string;
+  href?: string;
 }
 
-export function Logo({ className, imageClassName, textClassName, showText = true, onClick, sizes, src }: LogoProps) {
+export function Logo({ className, imageClassName, textClassName, showText = true, onClick, sizes, src, href = "/" }: LogoProps) {
   const { brandName, logoUrl } = useSettings();
 
-  const finalBrandName = brandName || "Amani Outfits";
+  const finalBrandName = brandName || process.env.NEXT_PUBLIC_STORE_NAME || "Store";
   const finalLogoUrl = src || logoUrl || "/logo.webp";
 
   return (
-    <Link href="/" className={cn("flex items-center gap-1.5 group", className)} onClick={onClick}>
-      <div className={cn("relative flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110 size-6 md:size-8 shrink-0 rounded-full", imageClassName)}>
+    <Link href={href} className={cn("flex items-center gap-1 group", className)} onClick={onClick}>
+      <div className={cn("relative flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110 size-6 md:size-8 shrink-0", imageClassName)}>
         <Image
           src={finalLogoUrl}
           alt={`${finalBrandName} Logo`}
           fill
           sizes={sizes || "(max-width: 768px) 24px, 32px"}
-          className="object-cover rounded-full"
+          className="object-contain"
           quality={80}
           priority
         />

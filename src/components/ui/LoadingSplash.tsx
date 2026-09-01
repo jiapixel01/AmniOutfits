@@ -11,7 +11,7 @@ export default function LoadingSplash({
   logoUrl?: string;
   brandName?: string;
 }) {
-  const activeBrandName = brandName || "Amani Outfits";
+  const activeBrandName = brandName || process.env.NEXT_PUBLIC_STORE_NAME || "Store";
   const letters = useMemo(() => activeBrandName.split(""), [activeBrandName]);
 
   return (

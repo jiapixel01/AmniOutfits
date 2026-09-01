@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono
@@ -86,13 +86,17 @@ export async function generateMetadata(): Promise<Metadata> {
 
     if (!settings) throw new Error("No settings found");
 
+    const defaultStoreName = process.env.NEXT_PUBLIC_STORE_NAME || "Store";
+    const brandTitle = settings.metaTitle || settings.brandName || defaultStoreName;
+    const brandName = settings.brandName || defaultStoreName;
+
     return {
       metadataBase: new URL(baseUrl),
       title: {
-        default: settings.metaTitle || settings.brandName,
+        default: brandTitle,
         template: `%s`,
       },
-      description: settings.metaDescription || settings.brandName || "Your ultimate destination for quality products.",
+      description: settings.metaDescription || brandName || "Your ultimate destination for quality products.",
       manifest: '/manifest.json',
       icons: {
         icon: settings.logoUrl || '/favicon.ico',
@@ -102,22 +106,22 @@ export async function generateMetadata(): Promise<Metadata> {
       appleWebApp: {
         capable: true,
         statusBarStyle: 'default',
-        title: settings.brandName || "Amani Outfits",
+        title: brandName,
       },
       formatDetection: {
         telephone: false,
       },
       openGraph: {
-        title: settings.metaTitle || settings.brandName || "Amani Outfits",
-        description: settings.metaDescription || settings.brandName || "Your ultimate destination for quality products.",
+        title: brandTitle,
+        description: settings.metaDescription || brandName || "Your ultimate destination for quality products.",
         url: baseUrl,
-        siteName: settings.brandName || "Amani Outfits",
+        siteName: brandName,
         type: 'website',
       },
       twitter: {
         card: 'summary_large_image',
-        title: settings.metaTitle || settings.brandName || "Amani Outfits",
-        description: settings.metaDescription || settings.brandName || "Your ultimate destination for quality products.",
+        title: brandTitle,
+        description: settings.metaDescription || brandName || "Your ultimate destination for quality products.",
       },
       verification: {
         google: settings.searchConsoleMeta,
@@ -132,8 +136,9 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     };
   } catch (error) {
+    const fallbackStoreName = process.env.NEXT_PUBLIC_STORE_NAME || "Store";
     return {
-      title: "Amani Outfits",
+      title: fallbackStoreName,
       description: "Your ultimate destination for quality products.",
     };
   }

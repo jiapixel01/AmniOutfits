@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Banner {
   _id?: string;
@@ -28,6 +29,7 @@ interface HeroSliderProps {
 const AUTOPLAY_DELAY = 6000;
 
 export default function HeroV2({ banners }: HeroSliderProps) {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const slides = banners && banners.length > 0 ? banners : [];
 
@@ -47,7 +49,7 @@ export default function HeroV2({ banners }: HeroSliderProps) {
 
   useEffect(() => {
     if (!emblaApi) return;
-    
+
     // Defer the initial selection update to avoid synchronous setState during render/effect phase
     const timeoutId = setTimeout(() => {
       onSelect();
@@ -125,7 +127,7 @@ export default function HeroV2({ banners }: HeroSliderProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    <h1 className="text-[18px] sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tighter mb-6 sm:mb-8 drop-shadow-2xl uppercase">
+                    <h1 className="text-[18px] sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tighter mb-6 sm:mb-8 drop-shadow-2xl uppercase">
                       {banner.title}
                     </h1>
 
@@ -134,7 +136,7 @@ export default function HeroV2({ banners }: HeroSliderProps) {
                         href={banner.primaryBtnLink || banner.link || '/shop'}
                         className="group inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-12 sm:py-5 bg-primary text-white font-black rounded-full hover:bg-white hover:text-black transition-all text-[8px] sm:text-base uppercase tracking-widest shadow-2xl"
                       >
-                        {banner.primaryBtnText || 'Shop Now'}
+                        {banner.primaryBtnText || (t('store.hero.shop_now') as string) || 'Shop Now'}
                         <ArrowRight className="h-3 w-3 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-2" />
                       </Link>
 
@@ -182,8 +184,8 @@ export default function HeroV2({ banners }: HeroSliderProps) {
           >
             <span
               className={`transition-all duration-300 rounded-full ${i === activeIndex
-                  ? "w-8 h-1 sm:w-8 sm:h-1.5 bg-primary shadow-[0_0_10px_rgba(255,0,0,0.5)]"
-                  : "w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/30"
+                ? "w-8 h-1 sm:w-8 sm:h-1.5 bg-primary shadow-[0_0_10px_rgba(255,0,0,0.5)]"
+                : "w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/30"
                 }`}
             />
           </button>

@@ -5,11 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { User, LogOut, LayoutDashboard, Truck, Settings, Package } from 'lucide-react';
 import { useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { MobileMenu } from '@/components/layout/MobileMenu';
 import { Logo } from '@/components/ui/logo';
-import { useSettings } from '@/components/SettingsProvider';
-import { toast } from 'sonner';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,7 +28,6 @@ interface MobileNavbarProps {
  * Always sticky top-0 with solid bg-background. No transparent/floating on mobile.
  */
 export function MobileNavbar({ navItems, categories }: MobileNavbarProps) {
-  const router = useRouter();
   const { data: session, status } = useSession();
 
   const [profile, setProfile] = useState<any>(null);
@@ -39,35 +35,36 @@ export function MobileNavbar({ navItems, categories }: MobileNavbarProps) {
   useEffect(() => {
     let isMounted = true;
     const controller = new AbortController();
+    let timer: NodeJS.Timeout;
 
     if (status === 'authenticated') {
-      if (!profile) {
-        fetch('/api/user/profile', { signal: controller.signal })
-          .then(res => {
-            if (!res.ok) return null;
-            return res.json();
-          })
-          .then(data => {
-            if (isMounted && data) setProfile(data);
-          })
-          .catch(err => {
-            if (err.name !== 'AbortError') {
-              console.error('Failed to fetch profile', err);
-            }
-          });
-      }
+      fetch('/api/user/profile', { signal: controller.signal })
+        .then(res => {
+          if (!res.ok) throw new Error('Network response was not ok');
+          return res.json();
+        })
+        .then(data => {
+          if (isMounted && data) setProfile(data);
+        })
+        .catch(err => {
+          if (err.name !== 'AbortError') {
+             console.error('Failed to fetch profile', err);
+          }
+        });
     } else {
-      if (profile !== null) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setProfile(null);
-      }
+      timer = setTimeout(() => {
+        if (isMounted) {
+          setProfile(null);
+        }
+      }, 0);
     }
 
     return () => {
       isMounted = false;
       controller.abort();
+      if (timer) clearTimeout(timer);
     };
-  }, [status, profile]);
+  }, [status]);
 
   return (
     <header className="lg:hidden sticky top-0 z-50 w-full bg-background border-b shadow-sm">
@@ -155,7 +152,7 @@ export function MobileNavbar({ navItems, categories }: MobileNavbarProps) {
                     </>
                   )}
 
-                  {(session.user as any)?.role === 'user' && (
+                   {(session.user as any)?.role === 'user' && (
                     <>
                       <DropdownMenuItem asChild>
                         <Link href="/dashboard" className="cursor-pointer">
@@ -165,6 +162,36 @@ export function MobileNavbar({ navItems, categories }: MobileNavbarProps) {
                       <DropdownMenuItem asChild>
                         <Link href="/track-order" className="cursor-pointer">
                           <Truck className="mr-2 h-4 w-4" /> Track Order
+                        </Link>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+
+                  {(session.user as any)?.role === 'showroom_manager' && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/showroom/dashboard" className="cursor-pointer">
+                          <LayoutDashboard className="mr-2 h-4 w-4" /> Showroom Dashboard
+                        </Link>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+
+                  {(session.user as any)?.role === 'wholesaler' && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/wholesaler/dashboard" className="cursor-pointer">
+                          <LayoutDashboard className="mr-2 h-4 w-4" /> Wholesaler Dashboard
+                        </Link>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+
+                  {(session.user as any)?.role === 'employee' && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/employee/dashboard" className="cursor-pointer">
+                          <LayoutDashboard className="mr-2 h-4 w-4" /> Employee Dashboard
                         </Link>
                       </DropdownMenuItem>
                     </>

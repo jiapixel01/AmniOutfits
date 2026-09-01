@@ -1,4 +1,4 @@
-﻿import type { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import { getCachedSettings } from '@/lib/data-fetching';
 
 export const dynamic = 'force-dynamic';
@@ -23,7 +23,7 @@ const THEME_COLORS: Record<string, string> = {
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
   const settings = await getCachedSettings();
 
-  const brandName = settings?.brandName || 'Amani Outfits';
+  const brandName = settings?.brandName || process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
   const themeName = settings?.uiTemplates?.theme?.toLowerCase() || 'default';
   const themeColor = THEME_COLORS[themeName] || THEME_COLORS.default;
 

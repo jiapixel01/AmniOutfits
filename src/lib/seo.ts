@@ -1,4 +1,4 @@
-﻿import { headers } from 'next/headers';
+import { headers } from 'next/headers';
 
 async function getBaseUrl() {
   const headersList = await headers();
@@ -9,28 +9,30 @@ async function getBaseUrl() {
 
 export async function generateOrganizationSchema(settings: any) {
   const baseUrl = await getBaseUrl();
+  const brandName = settings?.brandName || process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: settings.brandName || 'Amani Outfits',
+    name: brandName,
     url: baseUrl,
-    logo: settings.logo,
+    logo: settings?.logo || settings?.logoUrl,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: settings.contact?.phone,
+      telephone: settings?.contact?.phone,
       contactType: 'customer service',
-      email: settings.contact?.email,
+      email: settings?.contact?.email,
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: settings.contact?.address,
+      streetAddress: settings?.contact?.address,
     },
   };
 }
 
-export async function generateProductSchema(product: any) {
+export async function generateProductSchema(product: any, settings?: any) {
   const price = product.salePrice ?? product.price;
   const baseUrl = await getBaseUrl();
+  const brandName = settings?.brandName || process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
 
   return {
     '@context': 'https://schema.org',
@@ -41,7 +43,7 @@ export async function generateProductSchema(product: any) {
     sku: product.sku,
     brand: {
       '@type': 'Brand',
-      name: 'Amani Outfits',
+      name: brandName,
     },
     offers: {
       '@type': 'Offer',
@@ -67,8 +69,9 @@ export function generateBreadcrumbSchema(items: { name: string; item: string }[]
   };
 }
 
-export async function generateBlogSchema(blog: any) {
+export async function generateBlogSchema(blog: any, settings?: any) {
   const baseUrl = await getBaseUrl();
+  const brandName = settings?.brandName || process.env.NEXT_PUBLIC_STORE_NAME || 'Store';
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -78,7 +81,7 @@ export async function generateBlogSchema(blog: any) {
     dateModified: blog.updatedAt || blog.createdAt,
     author: {
       '@type': 'Organization',
-      name: 'Amani Outfits',
+      name: brandName,
     },
     description: blog.metaDescription || blog.title,
     url: `${baseUrl}/blog/${blog.slug}`,

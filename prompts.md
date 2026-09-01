@@ -1,137 +1,84 @@
-# Product Image Generation Prompts (24 Products, 8 Categories)
+# CDI Door Ind — Showroom Image Prompts (10 Showrooms)
 
-Use these prompts in Midjourney, DALL-E 3, or other AI image generators to create high-quality, professional product thumbnail images.
-
-### Rules for Generation:
-- **Aspect Ratio:** Always generate/crop images in **1:1 square ratio** (e.g., `--ar 1:1` in Midjourney).
-- **Style:** Clean, minimalist studio setup, soft shadows, sharp details, commercial e-commerce product shot style.
-- **Save Format:** Export/convert the final images to `.webp` format.
-- **Save Path:** Place them in your public directory: `/public/assets/images/products/` using the filenames listed below.
+This document contains **10 highly unique image generation prompts** for CDI Door Ind showrooms across Bangladesh, each showcasing a completely different architectural style, color palette, and atmospheric mood.
+Generate these images (16:9 landscape aspect ratio), save them as **`.webp`**, and place them in `public/assets/images/showrooms/`. 
 
 ---
 
-## 1. Laptop
-
-### Product 1: Apple MacBook Air M3
-* **Filename:** `macbook-air-m3.webp`
-* **Prompt:** A premium Apple MacBook Air closed on a soft grey wooden desk. High-end lifestyle tech product shot, minimal setup, neutral studio background, 8k resolution, photorealistic. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 2: HP Spectre x360
-* **Filename:** `hp-spectre-x360.webp`
-* **Prompt:** A premium HP Spectre x360 convertible laptop in dark ash silver with copper accents, shown in tent mode. Studio lighting, sharp reflection, light grey clean background, e-commerce shot. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 3: ASUS ROG Zephyrus G14
-* **Filename:** `asus-rog-g14.webp`
-* **Prompt:** High-end ASUS ROG Zephyrus G14 gaming laptop, open screen showing colorful cyberpunk graphics, anime matrix lights on lid active. Cinematic studio lighting, futuristic tech look. Square aspect ratio, 1:1, --ar 1:1
+## 1. Dhaka Central Showroom (Premium Palace Luxury)
+* **Style:** High-End Palace Luxury (White Marble, Glass, Gold Accents)
+* **Filename:** `dhaka-central-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a grand luxury door showroom in Dhaka. Double-height ceilings with large gold crystal chandeliers, polished white Italian marble floors reflecting glowing spotlights, and premium solid teak double-doors standing tall on gold-rimmed display frames. Sleek glass walls overlook a soft bokeh of a modern city at twilight. The color palette is white, gold, and deep brown wood. Ultra-detailed, luxury architectural photography, 16:9.
 
 ---
 
-## 2. PC & Server
-
-### Product 4: Intel Core i9-14900K Processor
-* **Filename:** `intel-i9-14900k.webp`
-* **Prompt:** Intel Core i9 processor chip resting on an anti-static black foam. Macro shot, copper and gold details, high tech hardware product photography, white clean background. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 5: ASUS ROG Strix Z790 Motherboard
-* **Filename:** `rog-strix-z790.webp`
-* **Prompt:** High-end ASUS ROG Strix gaming motherboard, showcasing complex circuit designs, metal heatsinks, and dark PCB. Studio product lighting, angled product shot, clean grey background. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 6: NVIDIA GeForce RTX 4090 GPU
-* **Filename:** `rtx-4090.webp`
-* **Prompt:** A flagship NVIDIA RTX 4090 graphics card resting on a clean studio table. Metallic textures, triple-fan cooling system, sleek black shroud, studio lighting. Square aspect ratio, 1:1, --ar 1:1
+## 2. Chittagong Port City Showroom (Industrial Loft & Raw Timber)
+* **Style:** Modern Industrial Loft (Exposed Brick, Concrete, Steel, Matte Black)
+* **Filename:** `chittagong-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a modern industrial loft door showroom in Chittagong. Features raw exposed red brick walls, polished gray concrete floors, black steel support beams, and hanging industrial pendant Edison bulbs. Rustic solid oak and raw timber doors are displayed on black iron racks. The space feels open, edgy, and contemporary. Warm amber light contrasting with cool gray concrete. Professional architectural photography, 16:9.
 
 ---
 
-## 3. Monitor
-
-### Product 7: Samsung Odyssey Neo G9 Curved Monitor
-* **Filename:** `samsung-neo-g9.webp`
-* **Prompt:** An ultra-wide 49-inch curved Samsung Odyssey gaming monitor on a minimalist metal stand. Colorful high-definition screen wallpaper, back RGB ring glowing blue, studio shot. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 8: LG UltraFine 4K Monitor
-* **Filename:** `lg-ultrafine-4k.webp`
-* **Prompt:** Professional LG UltraFine 4K IPS display monitor. Minimalist design, slim bezels, displaying a crisp landscape photography. Clean office workspace setup, soft lighting. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 9: Dell UltraSharp U2724D Monitor
-* **Filename:** `dell-ultrasharp-27.webp`
-* **Prompt:** Dell UltraSharp 27-inch office monitor on a silver ergonomic stand. Premium office aesthetic, clean look, neutral corporate background, professional product photography. Square aspect ratio, 1:1, --ar 1:1
+## 3. Sylhet Royal Showroom (Classical Victorian Heritage)
+* **Style:** Classical Victorian (Ornate Plaster Moldings, Crystal, Mahogany)
+* **Filename:** `sylhet-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a classical Victorian-style door showroom in Sylhet. Rich mahogany and walnut carved doors displayed under detailed white plaster ceiling medallions and ornate wall crown moldings. A large vintage crystal chandelier casts warm flickering candlelight. The floor is covered in dark patterned heritage tiles, and deep crimson velvet curtains hang by the windows. Warm, royal, and historic mood. 16:9.
 
 ---
 
-## 4. Mobile Phone
-
-### Product 10: iPhone 15 Pro Max
-* **Filename:** `iphone-15-pro-max.webp`
-* **Prompt:** iPhone 15 Pro Max in Natural Titanium standing upright on a matching titanium block. Sleek camera lenses visible, screen off, elegant studio lighting, minimalist. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 11: Samsung Galaxy S24 Ultra
-* **Filename:** `galaxy-s24-ultra.webp`
-* **Prompt:** Samsung Galaxy S24 Ultra smartphone in Titanium Gray, showing the back of the device and S-Pen lying nearby. Sleek matte texture, professional studio layout. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 12: Google Pixel 8 Pro
-* **Filename:** `pixel-8-pro.webp`
-* **Prompt:** Google Pixel 8 Pro in Bay Blue showing its distinctive horizontal camera bar. Minimal design, lifestyle product shot, soft pastel blue background, aesthetic. Square aspect ratio, 1:1, --ar 1:1
+## 4. Khulna Eco Showroom (Biophilic Greenhouse & Bamboo)
+* **Style:** Biophilic Eco-Friendly (Plants, Skylights, Light Bamboo, Natural Light)
+* **Filename:** `khulna-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a biophilic, eco-friendly door showroom in Khulna. Sunlight streams down from a large glass ceiling skylight onto light-colored bamboo wood floors. Numerous green leafy plants, hanging ivy vines, and vertical garden walls surround the displays of natural wood doors (teak, garjan). Clean, fresh, organic, and airy atmosphere with natural green and beige tones. 16:9.
 
 ---
 
-## 5. Tablet
-
-### Product 13: iPad Pro M4
-* **Filename:** `ipad-pro-m4.webp`
-* **Prompt:** Extremely thin Apple iPad Pro with Apple Pencil magnetically attached to the side. Bright OLED display active showing abstract art, studio background. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 14: Samsung Galaxy Tab S9 Ultra
-* **Filename:** `galaxy-tab-s9.webp`
-* **Prompt:** Giant Samsung Galaxy Tab S9 Ultra tablet on its keyboard cover stand. Vibrant screen, clean look, minimalist modern home office setup. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 15: Wacom Intuos Pro Graphics Tablet
-* **Filename:** `wacom-intuos-pro.webp`
-* **Prompt:** Professional Wacom Intuos Pro drawing tablet with the stylus pen resting on the stand. Sleek matte black surface, clean studio lighting, high angle. Square aspect ratio, 1:1, --ar 1:1
+## 5. Rajshahi Silk City Showroom (Scandinavian Minimalist)
+* **Style:** Scandinavian Minimalist (High-Gloss White, Light Oak, Crisp Lines)
+* **Filename:** `rajshahi-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a Scandinavian minimalist door showroom in Rajshahi. Sleek high-gloss white laminated doors and light oak veneer flush doors stand along crisp white gallery walls. The floor is light oak herringbone wood, lit by recessed soft white LED strip lighting along the ceiling. Minimalist design with a single pale gray wool armchair and a black steel side table. Clean, quiet, and contemporary. 16:9.
 
 ---
 
-## 6. Gadget
-
-### Product 16: Apple Watch Ultra 2
-* **Filename:** `apple-watch-ultra-2.webp`
-* **Prompt:** Apple Watch Ultra 2 with an orange alpine loop band, showing the rugged titanium case. Outdoor adventure smartwatch display, clean studio lighting, 8k. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 17: Sony WF-1000XM5 Earbuds
-* **Filename:** `sony-wf1000xm5.webp`
-* **Prompt:** Premium Sony WF-1000XM5 wireless noise-cancelling earbuds sitting next to their charging case. Sleek matte black, studio lighting, soft shadows. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 18: DJI Osmo Mobile 6 Gimbal
-* **Filename:** `dji-osmo-mobile-6.webp`
-* **Prompt:** DJI Osmo Mobile 6 smartphone stabilizer gimbal folded neatly. Matte grey finish, high-tech mechanism details, studio product shot. Square aspect ratio, 1:1, --ar 1:1
+## 6. Barisal Riverfront Showroom (Cozy Warm Cabin)
+* **Style:** Rustic Cozy Cabin (Hardwood, Stone Fireplace, Soft Yellow Lamps)
+* **Filename:** `barisal-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a cozy rustic cabin-style door showroom in Barisal. The space has dark hand-scraped hardwood floors, rustic heavy log ceiling beams, and a large stone fireplace glowing warmly in the background. Panelled pine and cedar doors are displayed on cozy wooden partition walls. Soft yellow desk lamps and candle lanterns create a warm, comfortable, and inviting cottage atmosphere. 16:9.
 
 ---
 
-## 7. Camera
-
-### Product 19: Sony Alpha 7 IV Mirrorless Camera
-* **Filename:** `sony-a7iv.webp`
-* **Prompt:** Sony Alpha 7 IV mirrorless camera body with a professional prime lens. Sharp focus, high-quality camera body textures, side studio lighting. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 20: DJI Mini 4 Pro Drone
-* **Filename:** `dji-mini-4-pro.webp`
-* **Prompt:** DJI Mini 4 Pro drone unfolded, resting on a white studio surface. Camera gimbal pointing forward, carbon fiber and plastic body details, clean lighting. Square aspect ratio, 1:1, --ar 1:1
-
-### Product 21: GoPro HERO12 Black
-* **Filename:** `gopro-hero12.webp`
-* **Prompt:** Rugged GoPro HERO12 Black action camera. Water droplets on the lens hood, robust textured black body, outdoor active setup, studio product lighting. Square aspect ratio, 1:1, --ar 1:1
+## 7. Rangpur Heritage Showroom (Artistic Dark Slate Gallery)
+* **Style:** Moody Chiaroscuro Gallery (Dark Slate, Spotlights, Deep Shadows)
+* **Filename:** `rangpur-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of an artistic gallery-style door showroom in Rangpur. Intricately hand-carved designer doors stand alone like statues, illuminated by sharp dramatic overhead spotlights against dark slate-gray stone walls. The floor is dark polished stone. Deep shadows and high contrast highlight every carved groove and relief details. Moody, dramatic, and artistic museum-like atmosphere. 16:9.
 
 ---
 
-## 8. Sound
+## 8. Comilla Highway Showroom (Futuristic Cyberpunk Commercial)
+* **Style:** High-Tech Cyberpunk (Epoxy Floor, Blue Neon, Digital Displays)
+* **Filename:** `comilla-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a high-tech door showroom in Comilla. Glossy white epoxy floor with glowing blue neon LED strip lighting running underneath. Displayed doors feature smart handles, fingerprint scanners, and glass inserts. Large interactive digital catalog screens line the walls. High-tech, futuristic, and commercial look. Color palette is white, silver, and neon blue. 16:9.
 
-### Product 22: Sony WH-1000XM5 Headphones
-* **Filename:** `sony-wh1000xm5.webp`
-* **Prompt:** High-end Sony WH-1000XM5 over-ear noise-cancelling headphones in silver, folded flat on a light oak table. Clean minimalist design, studio photography. Square aspect ratio, 1:1, --ar 1:1
+---
 
-### Product 23: JBL Boombox 3 Portable Speaker
-* **Filename:** `jbl-boombox-3.webp`
-* **Prompt:** Powerful JBL Boombox 3 rugged Bluetooth speaker. Metal handle, textured black fabric grille, side passive radiators visible, studio background. Square aspect ratio, 1:1, --ar 1:1
+## 9. Mymensingh Green Showroom (Terracotta Traditional Bengali)
+* **Style:** Bengali Traditional (Red Clay Terracotta, Curved Arches, Brass)
+* **Filename:** `mymensingh-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a traditional Bengali-style door showroom in Mymensingh. Polished red clay terracotta tile flooring, curved brick archways separating display zones, and large brass vases filled with marigolds. Sunlight streams through wooden louvered shutters, casting warm light patterns. Traditional panelled teak doors stand proudly in this warm, nostalgic, and culturally rich setting. 16:9.
 
-### Product 24: Shure SM7B Vocal Microphone
-* **Filename:** `shure-sm7b.webp`
-* **Prompt:** Iconic Shure SM7B dynamic studio vocal microphone on a boom arm. Sleek black metal, foam windscreen attached, professional broadcast setup. Square aspect ratio, 1:1, --ar 1:1
+---
+
+## 10. Cox's Bazar Coastal Showroom (Bright Beachfront Breeze)
+* **Style:** Oceanfront Coastal (Limestone, Beach View, Driftwood, Sun-Drenched)
+* **Filename:** `coxsbazar-showroom.webp`
+* **Prompt:**
+  A wide cinematic interior photograph of a beachfront coastal door showroom in Cox's Bazar. Bright tropical sunlight floods the white-washed room through a massive glass wall overlooking a sandy beach and turquoise ocean. The floor is light sand-colored limestone, and displays are supported by natural driftwood logs. White-washed wood doors and sea-glass colored door models are highlighted. Airy, refreshing, and sun-drenched. 16:9.

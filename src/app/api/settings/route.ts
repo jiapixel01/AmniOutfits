@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag, revalidatePath } from 'next/cache';
 import connectToDatabase from '@/lib/db';
 import GlobalSettings from '@/models/GlobalSettings';
@@ -33,11 +33,11 @@ export async function GET() {
     const settings = await GlobalSettings.findOne().sort({ updatedAt: -1 });
     if (!settings) {
       return NextResponse.json({
-        brandName: process.env.NEXT_PUBLIC_STORE_NAME || "Amani Outfits",
+        brandName: process.env.NEXT_PUBLIC_STORE_NAME || "Store",
         contact: {
-          email: "support@amanioutfits.com",
-          phone: "+8801234567890",
-          address: "Dhaka, Bangladesh"
+          email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "",
+          phone: process.env.NEXT_PUBLIC_SUPPORT_PHONE || "",
+          address: ""
         },
         socialLinks: {
           facebook: '',
@@ -48,8 +48,8 @@ export async function GET() {
           tiktok: '',
           whatsapp: ''
         },
-        marqueeText: "Welcome to Amani Outfits!",
-        metaTitle: process.env.NEXT_PUBLIC_STORE_NAME || "Amani Outfits",
+        marqueeText: `Welcome to ${process.env.NEXT_PUBLIC_STORE_NAME || "Store"}!`,
+        metaTitle: process.env.NEXT_PUBLIC_STORE_NAME || "Store",
         metaDescription: "The most popular online shop in Bangladesh.",
         logoUrl: "/logo.webp",
         freeDeliveryThreshold: 0,
@@ -115,7 +115,8 @@ export async function POST(req: NextRequest) {
       'facebookTestEventCode',
       'tiktokPixelId',
       'tiktokAccessToken',
-      'googleTagManagerId'
+      'googleTagManagerId',
+      'aiConfig'
     ];
 
     // Restricted fields - ONLY for super_admin
@@ -125,7 +126,6 @@ export async function POST(req: NextRequest) {
       'googleAnalyticsId',
       'googleAnalyticsPropertyId',
       'googleSearchConsoleId',
-      'aiConfig',
       'searchConsoleMeta',
       'saasSubscription',
       'superAdminNote'
