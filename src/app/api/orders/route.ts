@@ -313,9 +313,20 @@ export async function POST(req: NextRequest) {
         if (!product) throw new Error('Product not found during price verification');
 
         const hasVariant = !!(item.color || item.size);
-        let itemPrice = isWholesalerUser
-          ? (product.wholesaleSalePrice ?? product.wholesalePrice ?? product.salePrice ?? product.price)
-          : (product.salePrice ?? product.price);
+        let itemPrice = product.price;
+        if (isWholesalerUser) {
+          itemPrice = (product.wholesaleSalePrice && product.wholesaleSalePrice > 0)
+            ? product.wholesaleSalePrice
+            : (product.wholesalePrice && product.wholesalePrice > 0)
+              ? product.wholesalePrice
+              : (product.salePrice && product.salePrice > 0)
+                ? product.salePrice
+                : product.price;
+        } else {
+          itemPrice = (product.salePrice && product.salePrice > 0)
+            ? product.salePrice
+            : product.price;
+        }
         let itemPurchasePrice = product.purchasePrice ?? 0;
 
         if (hasVariant) {
@@ -324,9 +335,23 @@ export async function POST(req: NextRequest) {
             String(v.size || '').trim() === String(item.size || '').trim()
           );
           if (variant) {
-            itemPrice = isWholesalerUser
-              ? ((variant.wholesaleSalePrice ?? variant.wholesalePrice) ?? (variant.salePrice ?? variant.price) ?? (product.wholesaleSalePrice ?? product.wholesalePrice ?? product.salePrice ?? product.price))
-              : ((variant.salePrice ?? variant.price) ?? (product.salePrice ?? product.price));
+            if (isWholesalerUser) {
+              itemPrice = (variant.wholesaleSalePrice && variant.wholesaleSalePrice > 0)
+                ? variant.wholesaleSalePrice
+                : (variant.wholesalePrice && variant.wholesalePrice > 0)
+                  ? variant.wholesalePrice
+                  : (variant.salePrice && variant.salePrice > 0)
+                    ? variant.salePrice
+                    : (variant.price && variant.price > 0)
+                      ? variant.price
+                      : itemPrice;
+            } else {
+              itemPrice = (variant.salePrice && variant.salePrice > 0)
+                ? variant.salePrice
+                : (variant.price && variant.price > 0)
+                  ? variant.price
+                  : itemPrice;
+            }
             itemPurchasePrice = variant.purchasePrice ?? product.purchasePrice ?? 0;
           }
         }
